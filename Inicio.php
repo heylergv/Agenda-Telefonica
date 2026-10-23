@@ -148,6 +148,11 @@ window.addEventListener("pageshow", function (event) {
 
 </div>
 
+<!-- Easter Egg: Acceso a la Pokedex -->
+<a href="Pokedex.php" title="¡Descubre tu Pokédex!" style="position: fixed; bottom: 25px; right: 25px; z-index: 1000;">
+    <img src="pokeball.gif" alt="Abrir Pokédex" style="width: 75px; height: 75px; object-fit: contain; cursor: pointer;">
+</a>
+
 <script>
     
 document.getElementById("formContacto").addEventListener("submit", function(event) {

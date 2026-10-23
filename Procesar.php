@@ -7,11 +7,11 @@ $nombre = trim($_POST["nombre"] ?? "");
 $correo = trim($_POST["correo"] ?? "");
 $telefono = trim($_POST["telefono"] ?? "");
 $empresa = trim($_POST["empresa"] ?? "");
-$categoria = trim($_POST["categoria"] ?? ""); // Agregar la variable $categoria
+
 
 // Validación de que no vengan campos vacíos
 // if (empty($nombre) || empty($correo) || empty($telefono) || empty($empresa)) {
-if (empty($nombre) || empty($correo) || empty($telefono) || empty($empresa) || empty($categoria)) {
+if (empty($nombre) || empty($correo) || empty($telefono) || empty($empresa)) {
     die("Todos los campos son obligatorios. <a href='Inicio.php'>Volver</a>");
 }
 
@@ -21,7 +21,7 @@ if (!is_numeric($telefono)) {
 }
 
 // $sql = "INSERT INTO contactos (nombre, correo, telefono, empresa) VALUES (?, ?, ?, ?)";
-$sql = "INSERT INTO contactos (nombre, correo, telefono, empresa, categoria) VALUES (?, ?, ?, ?, ?)"; // Agregar la columna categoria
+$sql = "INSERT INTO contactos (nombre, correo, telefono, empresa) VALUES (?, ?, ?, ?)";
 
 $stmt = mysqli_prepare($conexion, $sql);
 
@@ -32,7 +32,6 @@ mysqli_stmt_bind_param(
     $correo,
     $telefono,
     $empresa
-    $categoria // Agregar la variable $categoria
 );
 
 mysqli_stmt_execute($stmt);
